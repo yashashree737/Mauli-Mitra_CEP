@@ -1,0 +1,76 @@
+# Wari Seva API — sample curl commands
+# Base URL assumed: http://localhost:8000
+
+# Health check
+curl http://localhost:8000/health
+
+# --- Users (/api/users) ---
+
+# READ all users
+curl "http://localhost:8000/api/users?action=READ"
+
+# READ one user
+curl "http://localhost:8000/api/users?action=READ&id=1"
+
+# CREATE user
+curl -X POST http://localhost:8000/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"full_name":"Ram Patil","phone_number":"9876543210","role":"WALKER","dindi_id":1}}'
+
+# UPDATE user (PATCH partial)
+curl -X PATCH http://localhost:8000/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"action":"UPDATE","id":1,"data":{"role":"VOLUNTEER"}}'
+
+# DELETE user
+curl -X DELETE "http://localhost:8000/api/users?action=DELETE&id=1"
+
+# --- Dindis (/api/dindis) ---
+
+curl "http://localhost:8000/api/dindis?action=READ"
+
+curl -X POST http://localhost:8000/api/dindis \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"name":"Pune Dindi","route_type":"ON_FOOT","accepting_members":true,"max_capacity":50,"status":"PLANNED","village":"Pune","district":"Pune"}}'
+
+# --- Route Stops (/api/route-stops) ---
+
+curl -X POST http://localhost:8000/api/route-stops \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"dindi_id":1,"stop_name":"Shivaji Nagar","sequence_order":1,"location":{"latitude":18.5304,"longitude":73.8567}}}'
+
+# --- Facility Points (/api/facility-points) ---
+
+curl -X POST http://localhost:8000/api/facility-points \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"name":"Camp Toilet A","category":"TOILET","verified_by_admin":false,"location":{"latitude":18.5204,"longitude":73.8567}}}'
+
+# --- Resource Needs (/api/resource-needs) ---
+
+curl -X POST http://localhost:8000/api/resource-needs \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"dindi_id":1,"category":"WATER","title":"Need drinking water at halt"}}'
+
+# --- Ambulance Units (/api/ambulance-units) ---
+
+curl -X POST http://localhost:8000/api/ambulance-units \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"key":"AMB-001","base_location":"Pune HQ","vehicle_number":"MH12AB1234","district":"Pune","is_active":true}}'
+
+# --- Live Location Logs (/api/live-location-logs) ---
+
+curl -X POST http://localhost:8000/api/live-location-logs \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"dindi_id":1,"location":{"latitude":18.5204,"longitude":73.8567}}}'
+
+# --- Join Requests (/api/join-requests) ---
+
+curl -X POST http://localhost:8000/api/join-requests \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"user_id":1,"dindi_id":1,"joining_date":"2026-08-29T10:00:00"}}'
+
+# --- Donation Requests (/api/donation-requests) ---
+
+curl -X POST http://localhost:8000/api/donation-requests \
+  -H "Content-Type: application/json" \
+  -d '{"action":"CREATE","data":{"dindi_id":1,"title":"Food supplies","target_amount":50000,"category":"FOOD"}}'

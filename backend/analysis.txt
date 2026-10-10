@@ -1,0 +1,2 @@
+Types: {'Hospital', 'Rural Hospital', 'PHC', 'पाणी टँकर भरण्याचे ठिकाण', 'शौचालये', 'Halt Mukkam Tukaram', 'ICU', 'Charanseva', 'Halt Mukkam Tukaram Arrival', 'पाणी फिलिंग पॉईंट (अंदाजे)', 'Police Station', 'Halt Visava', 'Hirkani Booth', 'HBT', 'Halt Mukkam Dnyaneshwar Rest', 'Ambulance', 'Halt Mukkam Dnyaneshwar Arrival', 'PHC Sub-Centre', 'Halt Mukkam Tukaram Rest', 'Halt Mukkam Dnyaneshwar'}
+Max call length: 11
