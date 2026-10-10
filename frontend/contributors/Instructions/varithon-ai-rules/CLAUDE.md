@@ -1,0 +1,7 @@
+Authoritative rules: /docs/ai/00-README.md. Read before any edit.
+Do not restate these rules elsewhere.
+Do not edit outside your assigned paths in /docs/ai/50-OWNERSHIP.md.
+On unresolvable conflict: STOP and append to /docs/ai/CONFLICTS.md.
+Vari Sathi: Next.js frontend (camelCase) + FastAPI backend (snake_case).
+The wire is snake_case; conversion happens ONLY in frontend/src/lib/api.js.
+Glossary, cut list and agent rules: /docs/ai/10-CONTEXT.md.
